@@ -23,8 +23,10 @@ namespace Intent_Practice
 			SetContentView(Resource.Layout.display_info);
 			// Create your application here
 			Init();
-			Greeting.Text += Intent.GetStringExtra("Username") ?? "Guest";
-            Age.Text += Intent.GetStringExtra("Age") ?? "0";
+			var name = Intent.GetStringExtra("Username");
+			var age = Intent.GetStringExtra("Age");
+			Greeting.Text += name == "" ? "Guest" : name;
+			Age.Text += age == "" ? "0" : age;
         }
 
         void Init()
